@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="6" author="ph_user">
+        <createTable tableName="printing_order">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer" type="bigint">
+                <constraints foreignKeyName="fk_id_customer" references="customer(id)"/>
+            </column>
+            <column name="machine" type="bigint">
+                <constraints foreignKeyName="fk_id_machine" references="machine(id)"/>
+            </column>
+            <column name="employee" type="bigint">
+                <constraints foreignKeyName="fk_id_employee" references="employee(id)"/>
+            </column>
+            <column name="material" type="bigint">
+                <constraints foreignKeyName="fk_id_material" references="material(id)"/>
+            </column>
+            <column name="favour" type="bigint">
+                <constraints foreignKeyName="fk_id_favour" references="favour(id)"/>
+            </column>
+            <column name="ending_date" type="datetime"/>
+            <column name="dead_line" type="datetime"/>
+            <column name="volume" type="bigint"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
